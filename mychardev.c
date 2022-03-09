@@ -88,6 +88,13 @@ int mychardev_close (struct inode *pinode, struct file *pfile)
 // function for device file reading
 ssize_t mychardev_read(struct file *pfile, char __user *buffer, size_t length, loff_t *offset)
 {
+    /*  
+        PROBLEM HERE
+        KNOWN ISSUES WITHIN "length". Reasons still unknown
+        It is very big about 13k bytes check with "cat /dev/kmsg"
+        It causes program to always enter the second clause of control flow which will cause
+        program to always read a message of 1024 length which will be our message + a bunch of gibberish 
+    */
 
     // calculate bytes available with buffer size subtract file offset
     int bytes_to_read;
