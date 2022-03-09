@@ -90,6 +90,13 @@ int memory_release(struct inode *inode, struct file *filp) {
  return 0;
 }
 
+/*
+    COMMENTS FROM MATT
+    memory_read/write is design only for single char, anything other than that will fail
+    offsets in read program only accounts for offset of one char
+    read program doesn't even check if bytes available (buffer length - offset) is bigger than length
+    both programs only return 1, return values determines how many char read/write
+*/
 // function to read from device
 ssize_t memory_read(struct file *filp, char *buf, size_t count, loff_t *f_pos) 
 {
