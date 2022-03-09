@@ -95,7 +95,7 @@ ssize_t mychardev_read(struct file *pfile, char __user *buffer, size_t length, l
     // increment counter on how many times device has been read from
     number_times_read++;
     // if message length bigger than available bytes
-    if(length > bytes_available)
+    if((int)length > bytes_available)
     {
         // bytes used to read would be max bytes available
         bytes_to_read = bytes_available;
@@ -103,7 +103,7 @@ ssize_t mychardev_read(struct file *pfile, char __user *buffer, size_t length, l
     // if message length is equal or smaller than bytes available, bytes to read would be length
     else
     {
-        bytes_to_read = length;
+        bytes_to_read = (int)length;
     }
     // call function to copy message from device buffer to user space
     copy_to_user(buffer, device_buffer + *offset, bytes_to_read);
@@ -111,7 +111,7 @@ ssize_t mychardev_read(struct file *pfile, char __user *buffer, size_t length, l
     printk(KERN_INFO "mychardev: read %d bytes from device", (int)bytes_to_read);
     // just read some characters, so need to adjust the offset
     *offset += bytes_to_read;
-    return bytes_to_read;
+    return (int)bytes_to_read;
 }
 
 // function for device file writing
