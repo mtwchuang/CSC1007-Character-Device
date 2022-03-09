@@ -115,6 +115,7 @@ ssize_t memory_write( struct file *filp,const char *buf, size_t count, loff_t *f
     // function transfer data from user space to kernel
     copy_from_user(memory_buffer,tmp,1);
     return 1;
+
 }
 
 

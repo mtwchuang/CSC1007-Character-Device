@@ -21,7 +21,7 @@ static ssize_t mychardev_read(struct file *pfile, char __user *buffer, size_t le
 static ssize_t mychardev_write (struct file *pfile, const char __user *buffer, size_t length, loff_t *offset);
 
 // global variables
-static char *device_buffer;             // device buffer
+static char *device_buffer;             // device/kernel buffer
 static int number_times_read = 0;       // counter for times device has been read
 static int number_times_written = 0;    // counter for times device has been written
 static int major;
