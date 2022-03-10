@@ -61,7 +61,7 @@ void mychardev_exit(void)
 	printk(KERN_INFO "Unloading module mychardev: exit: freeing device buffer and unregistering device");
     // free memory for device buffer
     kfree(device_buffer);
-    unregister_chrdev(240,DEVICE_NAME);
+    unregister_chrdev(60,DEVICE_NAME);
 }
 
 // points to corresponding init and exit functions
