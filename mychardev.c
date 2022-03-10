@@ -32,7 +32,7 @@ static struct file_operations chardev_fileops =
     .read       = mychardev_read,
     .write      = mychardev_write,
     .open       = mychardev_open,
-    .release    = mychardev_exit
+    .release    = mychardev_close
 };
 
 /* functions for module loading/unloading*/
@@ -44,7 +44,7 @@ int mychardev_init(void)
     // allocating memory for device buffer
     device_buffer = (char *) kmalloc(BUFFER_SIZE, GFP_KERNEL);
     // register device as major number 240, name as mychardev and inputs file operations
-	major = register_chrdev(240, DEVICE_NAME, &chardev_fileops);
+	major = register_chrdev(60, DEVICE_NAME, &chardev_fileops);
     // registration checking
     if(major < 0)
     {
