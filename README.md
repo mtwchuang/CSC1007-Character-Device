@@ -16,3 +16,6 @@ The functions are to
 Input
 
 Input random message and press enter. Each time the console prompt user if he wants to continue (1 to continue, 2 to exit), enter 1. Repeat 10 times. After 10th time, when prompted to continue, enter 2, program will exit. 
+
+References to the Github Page we got some inspirations from
+https://gist.github.com/ksvbka/0cd1a31143c1003ce6c7
