@@ -1,5 +1,7 @@
 # character-device-csc1007 in C Programming
+
 Project Requirements
+
 Develop a loadable kernel module and a user space application program to communicate between the kernel and user space using C language. The structure of the device driver should include these four functions: devi_open, devi_read, devi_write, devi_release. Device driver must be capable of allowing users to type in more than 10 times of messages, with correct messages plus length of characters on screen. 
 
 The functions are to 
