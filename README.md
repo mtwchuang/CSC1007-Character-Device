@@ -14,4 +14,5 @@ The functions are to
 -	print into kernel space how many times device has been read
 
 Input
+
 Input random message and press enter. Each time the console prompt user if he wants to continue (1 to continue, 2 to exit), enter 1. Repeat 10 times. After 10th time, when prompted to continue, enter 2, program will exit. 
