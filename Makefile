@@ -1,11 +1,15 @@
-obj-m += mychardev.o
+obj-m   := charDev.o
+
+KERNELDIR ?= /lib/modules/$(shell uname -r)/build
+PWD       := $(shell pwd)
+
 all:
-        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
-        sudo insmod mychardev.ko
+	$(MAKE) -C $(KERNELDIR) M=$(PWD)
+	sudo insmod charDev.ko
+	sudo mknod /dev/charDev 235 0
+	sudo chmod 666 /dev/charDev
 clean:
-        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
-        sudo rmmod mychardev
-        sudo rm /dev/mychardev
-device:
-        sudo mknod /dev/mychardev c 60 0
-        sudo chmod 666 /dev/mychardev
+	sudo rmmod charDev
+	sudo rm /dev/charDev
+	rm -rf *.o *~ core .depend .*.cmd *.ko *.mod.c .tmp_versions *.symvers *.order
+	
