@@ -35,7 +35,7 @@ int  read_device ()
         memset(data, 0, sizeof(data)); // to fill first sizeof data bytes of the memory pointed to by data with 0
         data[0] = '\0'; //signify end of string
         ret = read(fd, data, write_length, &ppos); // execute read function
-        printf("DEVICE_READ : %s\n", data); // print data read from kernel
+        printf("DEVICE_READ : %s\n Byte size: %d", data,strlen(data)); // print data read from kernel
         if (ret == - 1 ) // check if reading succeeded or failed
                 printf("reading failed\n");
         else

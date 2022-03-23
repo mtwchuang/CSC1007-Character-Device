@@ -43,7 +43,6 @@ static ssize_t device_read(struct file *fp, char *buff, size_t length, loff_t *p
                 bytes_to_read = maxbytes; //if no set bytes to read as maxbytes
 
         bytes_read = copy_to_user(buff, device_buffer + *ppos, bytes_to_read); //send read information to user and  determine if read succeeded or fail
-        printk(KERN_INFO "charDev :  %d bytes has been read from kernel space\n", bytes_read);
         *ppos += bytes_read;            // change seek position to the end of bytes_read
         printk(KERN_INFO "charDev : Read %d times.", ++read_counter); //print number of times read function has been called into kernel
 
