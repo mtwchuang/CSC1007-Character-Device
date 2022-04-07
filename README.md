@@ -15,4 +15,5 @@ Input random message and press enter. Each time the console prompt user if he wa
 
 ## References
 https://gist.github.com/ksvbka/0cd1a31143c1003ce6c7
+
 https://embetronicx.com/tutorials/linux/device-drivers/cdev-structure-and-file-operations-of-character-drivers/
